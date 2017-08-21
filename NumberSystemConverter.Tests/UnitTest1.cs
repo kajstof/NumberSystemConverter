@@ -4,7 +4,7 @@ using Xunit;
 
 namespace NumberSystemConverter.Tests
 {
-    public class UnitTest1
+    public class RomanNaturalConverterTests
     {
         [Fact]
         public void Number_Greater_Than_ThreeThousand_Throws_IndexOutOfRangeException()
