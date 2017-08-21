@@ -1,2 +1,3 @@
-# DotNetFramework4.7-NumberSystemConverter
+# NumberSystemConverter
+## [.Net Framework 4.7]
 TDD example https://www.codeproject.com/Articles/560137/NET-TDD-Test-Driven-Development-by-example-Part
