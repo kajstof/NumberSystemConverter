@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/tmp
+    docker:
+      - image: microsoft/dotnet:2.0.0-sdk-stretch
+    steps:
+      - checkout
+      - run: dotnet restore
+      - run: dotnet build
