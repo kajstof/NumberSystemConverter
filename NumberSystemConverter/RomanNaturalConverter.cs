@@ -4,38 +4,40 @@ using System.Text;
 
 namespace NumberSystemConverter
 {
+    #region Supporting Types
+
+    /// <summary>
+    /// Roman Numerals
+    /// </summary>
+    /// <remarks>
+    /// There are seven symbols that can be used to write any roman numeral
+    /// </remarks>
+    enum RomanNumeralsType
+    {
+        M = 1000,
+        D = 500,
+        C = 100,
+        L = 50,
+        X = 10,
+        V = 5,
+        I = 1
+    }
+
+    internal class RomanNumeralPair
+    {
+        public int NumericValue { get; set; }
+        public string RomanNumeralRepresentation { get; set; }
+    }
+
+    #endregion
+
     public class RomanNumeralConverter
     {
-        #region Supporting Types
+        #region Lookup
 
-        /// <summary>
-        /// Roman Numerals
-        /// </summary>
-        /// <remarks>
-        /// There are seven symbols that can be used to write any roman numeral
-        /// </remarks>
-        enum RomanNumeralsType
-        {
-            M = 1000,
-            D = 500,
-            C = 100,
-            L = 50,
-            X = 10,
-            V = 5,
-            I = 1
-        }
+        private List<RomanNumeralPair> romanNumeralList;
 
-        internal class RomanNumeralPair
-        {
-            public int NumericValue { get; set; }
-            public string RomanNumeralRepresentation { get; set; }
-        }
-
-        #endregion
-
-        private readonly List<RomanNumeralPair> romanNumeralList;
-
-        public RomanNumeralConverter()
+        private void InitializeLookup()
         {
             romanNumeralList = new List<RomanNumeralPair>()
             {
@@ -47,6 +49,13 @@ namespace NumberSystemConverter
                 new RomanNumeralPair() { NumericValue = Convert.ToInt32(RomanNumeralsType.V), RomanNumeralRepresentation = RomanNumeralsType.V.ToString() },
                 new RomanNumeralPair() { NumericValue = Convert.ToInt32(RomanNumeralsType.I), RomanNumeralRepresentation = RomanNumeralsType.I.ToString() }
             };
+        }
+
+        #endregion
+
+        public RomanNumeralConverter()
+        {
+            InitializeLookup();
         }
 
         public string ConvertRomanNumeral(int number)
