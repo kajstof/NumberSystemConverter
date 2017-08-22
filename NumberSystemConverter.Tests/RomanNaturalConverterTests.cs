@@ -5,25 +5,29 @@ namespace NumberSystemConverter.Tests
 {
     public class RomanNaturalConverterTests
     {
-        private RomanNumeralConverter _converter;
+        private RomanNumeralConverter converter;
 
-        private void Execute()
+        public RomanNaturalConverterTests()
         {
-            _converter = new RomanNumeralConverter();
+            converter = new RomanNumeralConverter();
         }
 
         [Fact]
         public void Number_Greater_Than_ThreeThousand_Throws_IndexOutOfRangeException()
         {
-            Execute();
-            Assert.Throws<IndexOutOfRangeException>(() => _converter.ConvertRomanNumeral(3001));
+            Assert.Throws<IndexOutOfRangeException>(() => converter.ConvertRomanNumeral(3001));
         }
 
         [Fact]
         public void Number_Less_Than_One_Throws_IndexOutOfRangeException()
         {
-            Execute();
-            _converter.ConvertRomanNumeral(-1);
+            Assert.Throws<IndexOutOfRangeException>(() => converter.ConvertRomanNumeral(-1));
+        }
+
+        [Fact]
+        public void Number_Zero_Throws_IndexOutOfRangeException()
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => converter.ConvertRomanNumeral(0));
         }
     }
 }
